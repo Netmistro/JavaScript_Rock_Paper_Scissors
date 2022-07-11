@@ -1,0 +1,77 @@
+*,
+*::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: grey;
+    color: white;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h1 {
+    margin: 3rem;
+}
+
+.rock {
+    height: 20rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: 0.5rem;
+    cursor: pointer;
+}
+
+.paper {
+    height: 20rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: 0.5rem;
+    cursor: pointer;
+}
+
+.scissors {
+    height: 20rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: 0.5rem;
+    cursor: pointer;
+}
+
+.alert-text {
+    font-weight: bold;
+    font-size: large;
+    margin: 2rem;
+}
+
+.my-score {
+    font-weight: bold;
+    font-size: large;
+    color: black;
+}
+
+.pc-score {
+    font-weight: bold;
+    font-size: large;
+    color: black;
+}
+
+button {
+    margin: 2rem;
+    padding: 1rem;
+    background-color: orangered;
+    color: black;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
