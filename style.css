@@ -27,21 +27,21 @@ h1 {
 
 .rock {
     height: 20rem;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     margin: 0.5rem;
     cursor: pointer;
 }
 
 .paper {
     height: 20rem;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     margin: 0.5rem;
     cursor: pointer;
 }
 
 .scissors {
     height: 20rem;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     margin: 0.5rem;
     cursor: pointer;
 }
@@ -56,12 +56,18 @@ h1 {
     font-weight: bold;
     font-size: large;
     color: black;
+    margin: 2rem;
 }
 
 .pc-score {
     font-weight: bold;
     font-size: large;
     color: black;
+    margin: 2rem;
+}
+
+.score {
+    display: flex;
 }
 
 button {
@@ -74,4 +80,33 @@ button {
     outline: none;
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 1rem;
+}
+
+button:hover {
+    color: white;
+    background-color: blueviolet;
+    transition: all 500ms ease-in-out;
+}
+
+/* Media queries */
+@media only screen and (min-width: 375px) and (max-width: 1000px) {
+    h1 {
+        margin: 1rem;
+    }
+
+    .rock {
+        height: 15rem;
+        margin: 0.5rem;
+    }
+
+    .paper {
+        height: 15rem;
+        margin: 0.5rem;
+    }
+
+    .scissors {
+        height: 15rem;
+        margin: 0.5rem;
+    }
 }
