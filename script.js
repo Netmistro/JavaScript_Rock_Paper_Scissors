@@ -14,7 +14,7 @@ const btnScissors = document.querySelector('.scissors');
 const myScore = document.querySelector('.my-score');
 const pcScore = document.querySelector('.pc-score');
 const rockPaperScissorsDiv = document.querySelectorAll('.pic');
-let choise = ['rock', 'paper', 'scissors'];
+let choises = ['rock', 'paper', 'scissors'];
 
 // Define score
 let score = 0;
@@ -45,7 +45,7 @@ Functions go here
 */
 // Computer generated choice via function
 getComputerChoice = () => {
-    let computerChoice = choise[Math.floor(Math.random() * choise.length)];
+    let computerChoice = choises[Math.floor(Math.random() * choises.length)];
     return computerChoice;
 };
 
