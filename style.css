@@ -8,7 +8,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: grey;
+    background-color: rgb(65, 65, 65);
     color: white;
 }
 
@@ -26,24 +26,30 @@ h1 {
 }
 
 .rock {
-    height: 20rem;
+    width: 10rem;
+    height: 10rem;
+    font-size: 4rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-    margin: 0.5rem;
     cursor: pointer;
+    border-radius: 2rem;
 }
 
 .paper {
-    height: 20rem;
+    width: 10rem;
+    height: 10rem;
+    font-size: 4rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-    margin: 0.5rem;
     cursor: pointer;
+    border-radius: 2rem;
 }
 
 .scissors {
-    height: 20rem;
+    width: 10rem;
+    height: 10rem;
+    font-size: 4rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-    margin: 0.5rem;
     cursor: pointer;
+    border-radius: 2rem;
 }
 
 .alert-text {
@@ -70,23 +76,26 @@ h1 {
     display: flex;
 }
 
-button {
+.btn-reset {
     margin: 2rem;
-    padding: 1rem;
-    background-color: orangered;
+    font-size: medium;
     color: black;
+    background-color: white;
     font-weight: bold;
     border: none;
     outline: none;
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border-radius: 1rem;
 }
 
-button:hover {
+.btn-reset:hover {
     color: white;
-    background-color: blueviolet;
-    transition: all 500ms ease-in-out;
+    background-color: black;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 /* Media queries */
@@ -95,18 +104,4 @@ button:hover {
         margin: 1rem;
     }
 
-    .rock {
-        height: 15rem;
-        margin: 0.5rem;
-    }
-
-    .paper {
-        height: 15rem;
-        margin: 0.5rem;
-    }
-
-    .scissors {
-        height: 15rem;
-        margin: 0.5rem;
-    }
 }

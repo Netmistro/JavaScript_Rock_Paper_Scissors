@@ -7,66 +7,69 @@ Created by Arnold Bradshaw
 /* 
 Constants go here
 */
-
 const btnReset = document.querySelector('.btn-reset');
-const imgRock = document.querySelector('.rock')
-const imgPaper = document.querySelector('.paper')
-const imgScissors = document.querySelector('.scissors')
-const myScore = document.querySelector('.my-score')
-const pcScore = document.querySelector('.pc-score')
-const rockPaperScissorsDiv = document.querySelectorAll('.pic')
-let computerChoises = ['rock', 'paper', 'scissors']
+const btnRock = document.querySelector('.rock');
+const btnPaper = document.querySelector('.paper');
+const btnScissors = document.querySelector('.scissors');
+const myScore = document.querySelector('.my-score');
+const pcScore = document.querySelector('.pc-score');
+const rockPaperScissorsDiv = document.querySelectorAll('.pic');
+let choise = ['rock', 'paper', 'scissors'];
 
-let score = {
-    Me: 0,
-    PC: 0,
-}
+// Define score
+let score = 0;
 
 /* 
 Event Listeners go here
 */
-
 btnReset.addEventListener('click', (e) => {
-    myScore.innerText = 'My Score: ' + 0
-    pcScore.innerText = 'PC Score: ' + 0
-})
+    resetGame();
+});
 
-imgRock.addEventListener('click', (e) => {
-    compareChoises()
-})
-imgPaper.addEventListener('click', (e) => {
-    compareChoises()
-})
-imgScissors.addEventListener('click', (e) => {
-    compareChoises()
-})
+btnRock.addEventListener('click', (e) => {
+    console.log(e.target.value);
+    getComputerChoice();
+});
+btnPaper.addEventListener('click', (e) => {
+    console.log(e.target.value);
+    getComputerChoice();
+
+});
+btnScissors.addEventListener('click', (e) => {
+    console.log(e.target.value);
+    getComputerChoice();
+});
 
 /* 
 Functions go here
 */
 // Computer generated choice via function
-randomGeneratedPCChoice = () => {
-    let computerChoice = computerChoises[Math.floor(Math.random() * 3).valueOf()];
-    console.log(computerChoice);
-}
+getComputerChoice = () => {
+    let computerChoice = choise[Math.floor(Math.random() * choise.length)];
+    return computerChoice;
+};
 
-// function to compare results
-compareChoises = () => {
-    let p = randomGeneratedPCChoice()
-    // I chose the clicked item so analyse the PC choice, p
-    switch (p) {
-        case p === 'rock':
-            console.log('Draw');
-            break;
-        case p === 'paper':
-            console.log("Win");
-            break;
-        default:
-            console.log("Lost");
-            break;
-    }
-}
+
+// function to reset all the text to zero
+resetGame = () => {
+    myScore.innerText = 'My Score: ' + 0;
+    pcScore.innerText = 'PC Score: ' + 0;
+};
+
+// function to compare results or get results
+
+getResult = (playerChoice, computerChoice) => {
+
+};
+
+
 // Function to update the screen text
+showResult = (score, playerChoice, computerChoice) => {
 
+};
 
-// function to update scores
+// player click RPS button
+playerClickRPS = () => { };
+
+// funtion to play game
+playGame = () => { };
