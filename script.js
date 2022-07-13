@@ -8,35 +8,34 @@ Created by Arnold Bradshaw
 Constants go here
 */
 const btnReset = document.querySelector('.btn-reset');
-const btnRock = document.querySelector('.rock');
-const btnPaper = document.querySelector('.paper');
-const btnScissors = document.querySelector('.scissors');
+let btnRPS = document.querySelectorAll('.rpsButton');
 const myScore = document.querySelector('.my-score');
 const pcScore = document.querySelector('.pc-score');
 const alertText = document.querySelector('.alert-text');
-let choises = ['rock', 'paper', 'scissors'];
 
 /* 
 Functions go here
 */
+
 // Computer generated choice via function
 getComputerChoice = () => {
-    let computerChoice = choises[Math.floor(Math.random() * choises.length)];
+    let rpsChoices = ['rock', 'paper', 'scissors'];
+    let computerChoice = rpsChoices[Math.floor(Math.random() * choises.length)];
     return computerChoice;
 };
-
-// Reset button to reset the game
-btnReset.addEventListener('click', (e) => {
-    endGame();
-});
 
 // function to compare results or get results
 getResult = (playerChoice, computerChoice) => {
     let score = 0;
-    if (playerChoice == computerChoice) {
+    if (playerChoice === computerChoice) {
         score = 0;
     }
-    else if ((playerChoice == 0 && computerChoice == 1) || playerChoice == 0 && computerChoice == 2) {
+    else if (playerChoice == 'Rock' && computerChoice == 'Scissors') {
+        score = 1;
+    } else if (playerChoice == 'Paper' && computerChoice == 'Rock') {
+        score = 1;
+    }
+    else if (playerChoice === 'Scissors' && computerChoice === 'Paper') {
         score = 1;
     }
     else {
@@ -47,44 +46,44 @@ getResult = (playerChoice, computerChoice) => {
 
 // Function to update the screen text
 showResult = (score, playerChoice, computerChoice) => {
-    if (playerChoice == computerChoice) {
-        score = 0;
-        alertText.innerText = "You DRAW";
-    } else if (playerChoice > computerChoice) {
-        score = 1;
-        alertText.innerText = "You WIN";
-    } else {
-        alertText.innerText = "You LOSE";
-        score = -1;
-    }
+    switch (score) {
+        case 0:
+            alertText.innerText = "You DRAW";
+            break;
+        case 1:
+            alertText.innerText = "You WIN";
+            break;
+        case -1:
+            alertText.innerText = "You LOSE";
+            break;
+        default:
+            break;
+    };
+    myScore.innerText = `${score}`;
 };
 
-// player click RPS button
-playerClickRPS = () => {
-    btnRock.addEventListener('click', (e) => {
-        console.log(e.target.value);
-        getComputerChoice();
-    });
-    btnPaper.addEventListener('click', (e) => {
-        console.log(e.target.value);
-        getComputerChoice();
-
-    });
-    btnScissors.addEventListener('click', (e) => {
-        console.log(e.target.value);
-        getComputerChoice();
-    });
+// Calculate who won
+playerClickRPS = (playerChoice) => {
+    const computerChoice = getComputerChoice();
+    const score = getResult(playerChoice.value, computerChoice);
+    showResult(score, playerChoice.value, computerChoice);
 };
 
 // funtion to play game
 playGame = () => {
-
+    btnRPS.forEach(rpsButton => {
+        rpsButton.addEventListener('click', (e) => {
+            console.log(e.value);
+            playerClickRPS(rpsButton);
+        });
+    });
+    endGame();
 };
 
 // function to reset all the text to zero
 endGame = () => {
-    myScore.innerText = 'My Score: ' + 0;
-    pcScore.innerText = 'PC Score: ' + 0;
+    myScore.innerText = '';
+    pcScore.innerText = '';
 };
 
 // Call the play game function
