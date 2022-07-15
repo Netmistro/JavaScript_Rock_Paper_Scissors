@@ -21,82 +21,57 @@ Functions go here
 let computerScore = 0;
 let playerScore = 0;
 
-// Computer generated choice via function, this returns the words Rock, Paper or Scissors
+// Computer generated choice, this returns the value Rock, Paper or Scissors
 getComputerChoice = () => {
     let rpsChoices = ['Rock', 'Paper', 'Scissors'];
     let computerChoice = rpsChoices[Math.floor(Math.random() * rpsChoices.length)];
     return computerChoice;
 };
 
-// Calculate who won
-playerClickRPS = (playerChoice) => {
-    let computerChoice = getComputerChoice();
-    console.log(computerChoice);
-    console.log(playerChoice);
-    // let totalScore = getResult(playerChoice, computerChoice);
-    // showResult(totalScore, playerChoice, computerChoice);
-};
-
-playerClickRPS();
-
-// function to compare results and get results
-getResult = (playerChoice, computerChoice) => {
-    // console.log(computerChoice);
-    // console.log(playerChoice);
-    // if (playerChoice == computerChoice) {
-    //     playerScore = 0;
-    //     computerScore = 0;
-    // }
-    // else if (playerChoice == 'Rock' && computerChoice == 'Scissors') {
-    //     playerScore = playerScore + 1;
-    //     computerScore = 0;
-    // } else if (playerChoice == 'Paper' && computerChoice == 'Rock') {
-    //     playerScore = playerScore + 1;
-    //     computerScore = 0;
-    // }
-    // else if (playerChoice == 'Scissors' && computerChoice == 'Paper') {
-    //     playerScore = playerScore + 1;
-    //     computerScore = 0;
-    // }
-    // else {
-    //     playerScore = playerScore - 1;
-    //     computerScore = computerScore + 1;
-    // }
-    // console.log({ totalScore });
-};
-
-// Function to update the screen text
-showResult = (totalScore, playerChoice, computerChoice) => {
-    // if (totalScore.playerScore = 0) {
-    //     alertText.innerText = "DRAW";
-    // } else if (playerScore = 1) {
-    //     alertText.innerText = "You WIN";
-    // } else {
-    //     alertText.innerText = "You LOOSE";
-    // }
-    // myScore.innerText = totalScore.playerScore;
-    // pcScore.innerText = totalScore.computerScore;
-};
-
-// funtion to play game
 playGame = () => {
-    // btnRPS.forEach(rpsButton => {
-    //     rpsButton.addEventListener('click', (e) => {
-    //         playerClickRPS(rpsButton.value);
-    //         // getResult();
-    //         // showResult();
-    //     });
-    // });
-    // endGame();
+    btnRPS.forEach(rpsButton => {
+        rpsButton.addEventListener('click', () => {
+            const compChoice = getComputerChoice();
+            console.log('Computer Choice: ', compChoice);
+            console.log('My Choice: ', rpsButton.value);
+            if (rpsButton.value == compChoice) {
+                playerScore = playerScore;
+                computerScore = computerScore;
+                alertText.innerText = "It's a DRAW";
+            } else if (rpsButton.value == 'Rock' && compChoice == 'Scissors') {
+                playerScore += 1;
+                computerScore -= 1;
+                alertText.innerText = "You WIN, PC LOSE";
+            } else if (rpsButton.value == 'Paper' && compChoice == 'Rock') {
+                playerScore += 1;
+                computerScore -= 1;
+                alertText.innerText = "You WIN, PC LOSE";
+            } else if (rpsButton.value == 'Scissors' && compChoice == 'Paper') {
+                playerScore += 1;
+                computerScore -= 1;
+                alertText.innerText = "You WIN, PC LOSE";
+            } else {
+                playerScore -= 1;
+                computerScore += 1;
+                alertText.innerText = "You LOSE";
+            }
+            myScore.innerText = 'ME: ' + playerScore;
+            pcScore.innerText = 'PC: ' + computerScore;
+        });
+    });
+    endGame();
 };
 
-// function to reset all the text to zero
+// Reset the game
 endGame = () => {
-    // btnReset.addEventListener('click', () => {
-    //     myScore.innerText = '0';
-    //     pcScore.innerText = '0';
-    // });
+    btnReset.addEventListener('click', () => {
+        myScore.innerText = "0";
+        pcScore.innerText = "0";
+        alertText.innerText = "Please Make Your Selection Above";
+        playerScore = 0;
+        computerScore = 0;
+    });
 };
 
-// Call the play game function
-// playGame();
+// Playgame function
+playGame();
